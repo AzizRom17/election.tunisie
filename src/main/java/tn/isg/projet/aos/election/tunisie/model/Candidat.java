@@ -8,7 +8,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@Entity(name = "Candidat")
+@Entity
+@Table(name = "Candidat")
 public class Candidat {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_candidat;

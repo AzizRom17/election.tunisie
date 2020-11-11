@@ -7,7 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@Entity(name = "Electeur")
+@Entity
+@Table(name = "Electeur")
 public class Electeur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
