@@ -24,4 +24,8 @@ public class Candidat {
 
     @OneToMany(mappedBy = "sonActivite",cascade= CascadeType.ALL)
     private Set<Activite> activites = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name="liste_id")
+    private ListeElectorale Sa_Liste;
 }
