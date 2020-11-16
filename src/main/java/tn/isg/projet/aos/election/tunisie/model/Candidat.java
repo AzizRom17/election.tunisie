@@ -19,14 +19,19 @@ public class Candidat {
     private String prenom;
     @NonNull
     private Date date_naiss;
+    private String parti;
+    private int score;
+    @Lob
     private byte photo;
     private String facebook;
     private String Twitter;
 
-    @OneToMany(mappedBy = "sonActivite",cascade= CascadeType.ALL)
-    private Set<Activite> activites = new HashSet<>();
+    @OneToMany(mappedBy = "candidat")
+    Set<Reclamation> ses_reclamations=new HashSet<>();
 
     @ManyToOne
-    @JoinColumn(name="liste_id")
-    private ListeElectorale Sa_Liste;
+    @JoinColumn(name="id_liste")
+    private ListeDeCandidats sa_liste;
+
+
 }

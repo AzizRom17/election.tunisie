@@ -13,19 +13,20 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-public class ListeElectorale {
+public class ListeDeCandidats {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_liste;
     @NonNull
-    private String nom_partie;
+    private String nom;
+    private String type;
     @NonNull
     private String gouvernorat;
+    private int score;
 
-    @OneToMany(mappedBy = "Sa_Liste", cascade =CascadeType.ALL)
+    @OneToMany(mappedBy = "sa_liste", cascade =CascadeType.ALL)
     private Set<Candidat> membres=new HashSet<>();
 
-    @ManyToOne()
-    @JoinColumn(name = "id_parti")
-    private Parti son_parti;
+    @ManyToMany()
+    private Set<Parti> partis=new HashSet<>();
 }

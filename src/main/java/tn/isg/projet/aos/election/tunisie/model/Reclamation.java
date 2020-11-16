@@ -12,14 +12,14 @@ public class Reclamation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_rec;
     @NonNull
-    private String type_rec;
+    private String Sujet;
     @NonNull
     private String justif_rec;
-    @NonNull
-    private Date date_rec;
+
 
     @ManyToOne
-    @JoinColumn(name = "id_elec" )
-    private Electeur rec_elec;
+    @JoinColumn(name = "id_candidat")
+    private Candidat candidat;
+
 
 }

@@ -20,7 +20,14 @@ public class Parti {
     @NonNull
     private String nom;
 
-    @OneToMany(mappedBy = "son_parti", cascade = CascadeType.ALL)
-   private Set<ListeElectorale> listes=new HashSet<>();
+    @ManyToMany
+    @JoinTable(
+            name = "parti_liste",
+            joinColumns =
+                    @JoinColumn(name = "id_parti",referencedColumnName = "id_parti"),
+            inverseJoinColumns =
+                    @JoinColumn(name="id_liste",referencedColumnName = "id_liste")
+    )
+    private Set<ListeDeCandidats> listes=new HashSet<>();
 
 }
