@@ -3,6 +3,8 @@ package tn.isg.projet.aos.election.tunisie.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -16,4 +18,11 @@ public class Activite {
 
     @ManyToOne
     @JoinColumn(name = "id_candidat" )
-    private Candidat sonActivite;}
+    private Candidat sonActivite;
+
+    @ManyToOne
+    private Set<Cv> cvs=new HashSet<>();
+
+    @OneToMany(mappedBy = "justif_activite", cascade = CascadeType.ALL)
+    private Set<Justificatif> justificatifs = new HashSet<>();
+}
