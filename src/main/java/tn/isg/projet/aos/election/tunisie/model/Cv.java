@@ -19,4 +19,7 @@ public class Cv {
     private Set<Activite> activites = new HashSet<>();
     @OneToMany(mappedBy = "ses_etudes", cascade = CascadeType.ALL)
     private Set<Etude> etudes = new HashSet<>();
+
+    @OneToOne(mappedBy = "cv")
+    private Candidat candidat;
 }

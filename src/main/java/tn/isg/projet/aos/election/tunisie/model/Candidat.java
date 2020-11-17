@@ -33,5 +33,12 @@ public class Candidat {
     @JoinColumn(name="id_liste")
     private ListeDeCandidats sa_liste;
 
+    @OneToMany(mappedBy = "candidat_a")
+    private Set<Avis> avis=new HashSet<>();
+
+    @OneToOne
+    @JoinColumn(name = "id_cv")
+    private Cv cv;
+
 
 }

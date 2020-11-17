@@ -5,6 +5,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+@Entity
 public class Avis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +17,7 @@ public class Avis {
     private String notr;
     @NonNull
     private String commentaire;
+
     @ManyToOne
     @JoinColumn(name = "id_candidat")
     private Candidat candidat_a;
